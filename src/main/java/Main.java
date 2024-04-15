@@ -1,5 +1,6 @@
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -13,5 +14,18 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
 
+
+        Hurtlocker testing = new Hurtlocker();
+        //System.out.println(testing.getRawData().replace('#', '\n'));
+
+        System.out.println(testing.test());
+        System.out.println(Arrays.toString(testing.splitAtPound()));
     }
+
+
+
+
+
+
+
 }
