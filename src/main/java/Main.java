@@ -22,8 +22,9 @@ public class Main {
         System.out.println(Arrays.toString(testing.splitAtPound()));
         System.out.println(Arrays.deepToString(testing.splitAtSeparator(testing.splitAtPound())));
 
-        System.out.println(testing.test());
-
+        System.out.println(testing.counter(testing.splitAtSeparator(testing.splitAtPound()), testing.getMilkRegex())); //milk
+        System.out.println(testing.counter(testing.splitAtSeparator(testing.splitAtPound()), testing.getBreadRegex())); //bread
+        System.out.println(testing.counter(testing.splitAtSeparator(testing.splitAtPound()), testing.getCookiesRegex())); //cookie
 
     }
 

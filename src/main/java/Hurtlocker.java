@@ -20,14 +20,20 @@ public class Hurtlocker {
 
     private String milkRegex = "[mM][iI][lL][kK]";
     private int milkCounter = 0;
+    private String milkPriceRegex1 = "3.23";
+    private int milkPriceCounter1 = 0;
+    private String milkPriceRegex2 = "1.23";
+    private int milkPriceCounter2 = 0;
 
+
+
+    private String breadRegex = "[bB][rR][eE][aA][dD]";
     private int breadCounter = 0;
-
+    private String cookiesRegex = "[cC][oO0][oO0][kK][iI][eE][sS]";
     private int cookiesCounter = 0;
 
     private int applesCounter = 0;
 
-    //private String kvSeparators =
 
 
     public Hurtlocker() throws Exception {
@@ -35,6 +41,26 @@ public class Hurtlocker {
 
     public String getRawData() {
         return rawData;
+    }
+
+    public String getMilkRegex(){
+        return milkRegex;
+    }
+
+    public String getMilkPriceRegex1() {
+        return milkPriceRegex1;
+    }
+
+    public String getMilkPriceRegex2() {
+        return milkPriceRegex2;
+    }
+
+    public String getBreadRegex(){
+        return breadRegex;
+    }
+
+    public String getCookiesRegex(){
+        return cookiesRegex;
     }
 
     public String[] splitAtPound(){
@@ -73,9 +99,22 @@ public class Hurtlocker {
         for(int i = 0; i < splitAtSeparator.length; i++){
             boolean emptyElement = false;
             for (int j = 0; j < splitAtSeparator[i].length; j++){
-                //
+                if(splitAtSeparator[i][j].isEmpty()){
+                    emptyElement = true;
+                    break;
+                }
+            }
+            if(!emptyElement){
+                for(int k = 0; k < splitAtSeparator[i].length; k++){
+                    String string = splitAtSeparator[i][k];
+                    Matcher matcher = pattern.matcher(string);
+                    if(matcher.find()){
+                        counter++;
+                    }
+                }
             }
         }
+        return counter;
     }
 
 
